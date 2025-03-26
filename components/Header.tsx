@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import Image from "next/image";
+
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,7 +44,7 @@ export default function Header() {
             transition={{ duration: 0.5 }}
             className="flex items-center"
           >
-            <Link href="/" className="flex-shrink-0 flex items-center">
+            {/*<Link href="/" className="flex-shrink-0 flex items-center">
               <div className="relative">
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   LLI
@@ -54,7 +56,25 @@ export default function Header() {
                   transition={{ duration: 0.8, delay: 0.3 }}
                 />
               </div>
-            </Link>
+            </Link>*/}
+    <Link href="/" className="flex-shrink-0 flex items-center">
+      <div className="relative">
+        <Image 
+          src="/logo.png" 
+          alt="LLI Logo" 
+          width={90} 
+          height={50} 
+          className="object-contain"
+        />
+        {/*<motion.span 
+          className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-400"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        />*/}
+      </div>
+    </Link>
+
           </motion.div>
 
           {/* Desktop Navigation */}
