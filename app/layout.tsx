@@ -52,8 +52,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Enlightened Future Hub | Cutting-Edge Digital Solutions",
-  description: "Where visionary creativity meets technical excellence - Crafting tomorrow's digital landscape today",
+  title: "Legislative Leadership Institute | Governance & Policy Excellence",
+  description: "Empowering legislative bodies with expert training, policy formulation, and governance consulting services for transformative public sector leadership",
 };
 
 export default function RootLayout({
