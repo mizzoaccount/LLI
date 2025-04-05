@@ -63,6 +63,14 @@ export default function Hero() {
     }
   };
 
+  const avatarUrls = [
+    "https://meru.go.ke/assets/image/logo_meru_plain.png",
+    "https://kakamega.go.ke/wp-content/uploads/2016/04/slide0003_image003-300x266.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHQvkVLX2e3ehW7GV-BmsLKI8DH2WiNxKHeA&s",
+    "https://upload.wikimedia.org/wikipedia/commons/c/c0/Coat_of_Arms_of_Kajiado_County.png",
+  ];
+  
+
   return (
     <section 
       className="relative bg-gradient-to-br from-blue-900 to-indigo-900 text-white py-24 md:py-32 overflow-hidden"
@@ -95,7 +103,7 @@ export default function Hero() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                 variants={itemVariants}
               >
-                Transforming Governance Through <span className="text-blue-300">Expert Leadership</span>
+                Transforming Governance Through <span className="text-blue-300">Training</span>
               </motion.h1>
               
               <motion.p 
@@ -127,15 +135,19 @@ export default function Hero() {
                 className="flex items-center space-x-6"
                 variants={itemVariants}
               >
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((item) => (
-                    <div 
-                      key={item}
-                      className="w-10 h-10 rounded-full bg-white border-2 border-blue-300"
-                      style={{ zIndex: 5 - item }}
-                    ></div>
-                  ))}
-                </div>
+
+<div className="flex -space-x-2">
+  {avatarUrls.map((url, index) => (
+    <img
+      key={index}
+      src={url}
+      alt={`Avatar ${index + 1}`}
+      className="w-10 h-10 rounded-full border-2 border-blue-300 object-cover"
+      style={{ zIndex: avatarUrls.length - index }}
+    />
+  ))}
+</div>
+
                 <div>
                   <p className="text-sm text-gray-300">Trusted by government institutions</p>
                   <p className="font-semibold">30+ years of combined experience</p>
