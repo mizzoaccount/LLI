@@ -27,11 +27,11 @@ export default function Header() {
 
   const navLinks = [
     { name: 'Services', href: '/services' },
-    { name: 'Experts', href: '#experts' },
-    { name: 'Clients', href: '#clients' },
-    { name: 'Resources', href: '#resources' },
-    { name: 'Contact', href: '#contact' },
-    { name: 'Workshops', href: '#workshop' },
+    { name: 'Experts', href: '/experts' },
+    { name: 'Clients', href: '/clients' },
+    { name: 'Resources', href: '/resources' },
+    { name: 'Contact', href: '/contact' },
+    { name: 'Workshops', href: '/workshops' },
   ];
 
   return (
