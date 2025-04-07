@@ -1,7 +1,5 @@
 "use client";
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Services() {
   const services = [
@@ -51,20 +49,7 @@ export default function Services() {
     },
   ];
 
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: false
-  });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
   const container = {
-    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
@@ -103,7 +88,7 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -119,9 +104,8 @@ export default function Services() {
         </motion.div>
 
         <motion.div
-          ref={ref}
           initial="hidden"
-          animate={controls}
+          animate="visible"
           variants={container}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
@@ -169,7 +153,7 @@ export default function Services() {
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
           className="mt-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 md:p-10 shadow-xl"
         >
