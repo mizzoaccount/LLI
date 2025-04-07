@@ -26,11 +26,12 @@ export default function Header() {
   }, [pathname]);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
+    { name: 'Services', href: '/services' },
     { name: 'Experts', href: '#experts' },
     { name: 'Clients', href: '#clients' },
     { name: 'Resources', href: '#resources' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Workshops', href: '#workshop' },
   ];
 
   return (
