@@ -171,7 +171,7 @@ export default function Header() {
                   href="#contact"
                   className="block w-full px-4 py-3 text-center rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
                 >
-                  Contact Us
+                  Get Started
                 </Link>
               </motion.div>
             </div>
