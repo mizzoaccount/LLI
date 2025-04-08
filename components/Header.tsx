@@ -26,6 +26,7 @@ export default function Header() {
   }, [pathname]);
 
   const navLinks = [
+    { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Experts', href: '/experts' },
     { name: 'Clients', href: '/clients' },
@@ -108,7 +109,7 @@ export default function Header() {
               transition={{ duration: 0.5, delay: 0.7 }}
             >
               <Link
-                href="#contact"
+                href="/get-started"
                 className="ml-4 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Get Started
