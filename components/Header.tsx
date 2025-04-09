@@ -31,8 +31,8 @@ export default function Header() {
     { name: 'Experts', href: '/experts' },
     { name: 'Clients', href: '/clients' },
     { name: 'Resources', href: '/resources' },
-    { name: 'Contact', href: '/contact' },
     { name: 'Workshops', href: '/workshops' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -109,7 +109,8 @@ export default function Header() {
               transition={{ duration: 0.5, delay: 0.7 }}
             >
               <Link
-                href="/get-started"
+                //href="/get-started"
+                href="/dashboard"
                 className="ml-4 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Get Started
@@ -168,7 +169,7 @@ export default function Header() {
                 className="pt-2"
               >
                 <Link
-                  href="#contact"
+                  href="/dashboard"
                   className="block w-full px-4 py-3 text-center rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
                 >
                   Get Started
