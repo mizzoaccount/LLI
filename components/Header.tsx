@@ -32,6 +32,7 @@ export default function Header() {
     { name: 'Clients', href: '/clients' },
     { name: 'Resources', href: '/resources' },
     { name: 'Workshops', href: '/workshops' },
+    { name: 'Programs', href: '/programmes' },
     { name: 'Contact', href: '/contact' },
   ];
 

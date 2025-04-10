@@ -11,6 +11,8 @@ import AdminClientsView from '@/components/admin/AdminClientsView';
 import AdminWorkshopsView from '@/components/admin/AdminWorkshopsView';
 import Link from 'next/link';
 
+
+
 // Add custom hook for media queries
 function useMediaQuery(query: string) {
     const [matches, setMatches] = useState(false);
@@ -63,6 +65,15 @@ export default function Dashboard() {
 
   // Current view state
   const [currentView, setCurrentView] = useState('dashboard');
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Dummy data
   const dashboardData = {
@@ -257,6 +268,24 @@ export default function Dashboard() {
                       >
                         <FiCalendar className="w-5 h-5 mr-3" />
                         Manage Workshops
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => handleNavigation('resources')}
+                        className={`flex items-center w-full p-3 rounded-lg ${currentView === 'resources' ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-100'}`}
+                      >
+                        <FiCalendar className="w-5 h-5 mr-3" />
+                        Manage Resources
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => handleNavigation('programs')}
+                        className={`flex items-center w-full p-3 rounded-lg ${currentView === 'programs' ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-100'}`}
+                      >
+                        <FiCalendar className="w-5 h-5 mr-3" />
+                        Manage Programmes
                       </button>
                     </li>
                   </>
@@ -460,11 +489,11 @@ export default function Dashboard() {
           )}
 
           {/* Client Views */}
-          {user.role === 'client' && currentView === 'programs' && (
+          {user.role === 'admin' && currentView === 'programs' && (
             <ClientProgramsView programs={clientData.activePrograms} />
           )}
 
-          {user.role === 'client' && currentView === 'resources' && (
+          {user.role === 'admin' && currentView === 'resources' && (
             <ClientResourcesView resources={clientData.recentResources} />
           )}
 
