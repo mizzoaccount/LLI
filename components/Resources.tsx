@@ -3,9 +3,58 @@ import { motion } from 'framer-motion';
 import { FiDownload, FiArrowRight } from 'react-icons/fi';
 import { FaRegFilePdf, FaRegFileWord } from 'react-icons/fa';
 import SubscriptionForm from './subscribeForm';
+import { useState } from 'react';
+
+
+function DownloadButton({ fileLink }: { fileLink: string }) {
+  const [loading, setLoading] = useState(false);
+
+  const handleDownload = async () => {
+    setLoading(true);
+    const link = document.createElement('a');
+    link.href = fileLink;
+    link.download = fileLink.split('/').pop() ?? 'default-filename';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setLoading(false);
+  };
+
+  return (
+    <button 
+      onClick={handleDownload}
+      className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+      disabled={loading}
+    >
+      <span className="mr-2">{loading ? "Downloading..." : "Download Resource"}</span>
+      <FiDownload className="w-5 h-5 group-hover:animate-bounce" />
+      {loading && <span className="ml-2">Loading...</span>}
+    </button>
+  );
+}
+
 
 export default function Resources() {
+
   const resources = [
+    {
+      title: "County Budget Analysis Framework",
+      category: "Research Paper",
+      description: "Comprehensive 2023 guide to effective fiscal management for county governments",
+      link: "/resources/pdfs/County_Budget_Analysis_Framework_2023.pdf",
+      icon: <FaRegFilePdf className="w-6 h-6 text-red-500" />
+    },
+    {
+      title: "Legislative Drafting Toolkit",
+      category: "Template Pack",
+      description: "Collection of 50+ customizable bill templates for various legislative needs",
+      link: "/resources/word/Legislative_Drafting_Toolkit.docx", 
+      icon: <FaRegFileWord className="w-6 h-6 text-blue-500" />
+    }
+  ];
+  
+  
+  /*const resources = [
     {
       title: "County Budget Analysis Framework",
       category: "Research Paper",
@@ -20,7 +69,7 @@ export default function Resources() {
       link: "#",
       icon: <FaRegFileWord className="w-6 h-6 text-blue-500" />
     }
-  ];
+  ];*/
 
   const blogPosts = [
     {
@@ -116,8 +165,8 @@ export default function Resources() {
                   href={resource.link} 
                   className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group"
                 >
-                  <span className="mr-2">Download Resource</span>
-                  <FiDownload className="w-5 h-5 group-hover:animate-bounce" />
+                  <DownloadButton fileLink={resource.link} />
+                  {/*<FiDownload className="w-5 h-5 group-hover:animate-bounce" />*/}
                 </a>
               </div>
             </motion.div>
@@ -159,13 +208,13 @@ export default function Resources() {
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{post.title}</h3>
                   <p className="text-gray-600 mb-6">{post.excerpt}</p>
-<a 
-  href={`/blog/${post.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} 
-  className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group"
->
-  <span className="mr-2">Read Article</span>
-  <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-</a>
+                <a 
+                  href={`/blog/${post.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} 
+                  className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group"
+                >
+                  <span className="mr-2">Read Article</span>
+                  <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
                   {/*<a 
                     href="#" 
                     className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group"
