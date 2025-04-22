@@ -52,24 +52,6 @@ export default function Resources() {
       icon: <FaRegFileWord className="w-6 h-6 text-blue-500" />
     }
   ];
-  
-  
-  /*const resources = [
-    {
-      title: "County Budget Analysis Framework",
-      category: "Research Paper",
-      description: "Comprehensive 2023 guide to effective fiscal management for county governments",
-      link: "#",
-      icon: <FaRegFilePdf className="w-6 h-6 text-red-500" />
-    },
-    {
-      title: "Legislative Drafting Toolkit",
-      category: "Template Pack",
-      description: "Collection of 50+ customizable bill templates for various legislative needs",
-      link: "#",
-      icon: <FaRegFileWord className="w-6 h-6 text-blue-500" />
-    }
-  ];*/
 
   const blogPosts = [
     {
@@ -215,39 +197,11 @@ export default function Resources() {
                   <span className="mr-2">Read Article</span>
                   <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
-                  {/*<a 
-                    href="#" 
-                    className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group"
-                  >
-                    <span className="mr-2">Read Article</span>
-                    <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>*/}
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
-
-        {/* CTA */}
-        {/*<motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 md:p-10 shadow-xl text-center"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Want more resources?</h3>
-          <p className="text-blue-100 mb-6 text-lg">Subscribe to our monthly legislative insights newsletter</p>
-          <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              className="flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300">
-              Subscribe
-            </button>
-          </div>
-        </motion.div>*/}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
