@@ -61,17 +61,18 @@ export default function VerifySubscription({ params }: { params: { token: string
   );
 }*/
 
+"use client";
+
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useParams } from 'next/navigation'; // use this instead of manually passing params
 
 export default function VerifySubscription() {
   const [message, setMessage] = useState('Verifying your subscription...');
   const [isSuccess, setIsSuccess] = useState(false);
   const router = useRouter();
-  const params = useParams(); // ✅ grab token from URL
+  const params = useParams();
   const token = params?.token as string;
 
   useEffect(() => {
