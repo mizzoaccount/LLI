@@ -1,11 +1,18 @@
 "use client";
 import { motion } from 'framer-motion';
-import { FiCalendar, FiMapPin, FiUser, FiMail, FiPhone, FiArrowRight, FiClock, FiCheckCircle } from 'react-icons/fi';
+import { FiCalendar, FiMapPin, FiArrowRight } from 'react-icons/fi';
 import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useState } from 'react';
+import CustomTrainingModal from '@/components/CustomTrainingModal';
 
 export default function WorkshopsPage() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalToggle = () => {
+    setShowModal(!showModal);
+  };
   const upcomingEvents = [
     {
       title: "Legislative Drafting Masterclass",
@@ -359,37 +366,52 @@ export default function WorkshopsPage() {
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to enhance your legislative skills?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            Join our upcoming workshops or request customized training for your institution.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            {/* View All Events Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                window.location.href = '/workshops';
+              }}
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to enhance your legislative skills?</h2>
-              <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                Join our upcoming workshops or request customized training for your institution.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg"
-                >
-                  View All Events
-                </motion.button>
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 shadow-lg"
-                >
-                  Request Custom Training
-                </motion.button>
-              </div>
-            </motion.div>
+              View All Events
+            </motion.button>
+
+            {/* Request Custom Training Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleModalToggle} // Opens the modal for custom training request
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 shadow-lg"
+            >
+              Request Custom Training
+            </motion.button>
           </div>
-        </section>
+        </motion.div>
+      </div>
+
+      {/* Custom Training Request Modal */}
+      <CustomTrainingModal
+        isOpen={showModal}
+        onClose={handleModalToggle}
+      />
+    </section>
       </div>
       <Footer />
     </>

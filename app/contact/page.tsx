@@ -457,42 +457,6 @@ export default function ContactPage() {
       {/* Include the modal */}
       <ScheduleConsultationModal isOpen={isModalOpen} onClose={closeModal} />
     </section>
-      {/*<section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to strengthen your governance systems?</h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Our team of experts is ready to discuss your specific legislative challenges and needs.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleModalToggle}
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg"
-            >
-              Schedule Consultation
-            </motion.button>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                window.location.href = 'tel:+254700123456';
-              }}
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 shadow-lg"
-            >
-              Call Our Team
-            </motion.button>
-          </div>
-        </motion.div>  
-       </div>
-      </section>*/}
       </div>
       <Footer />
     </>

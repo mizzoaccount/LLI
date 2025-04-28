@@ -360,6 +360,9 @@ export default function AboutPage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg"
+                  onClick={() => {
+                    window.location.href = '/contact';
+                  }}
                 >
                   Contact Our Team
                 </motion.button>
@@ -367,6 +370,9 @@ export default function AboutPage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 shadow-lg"
+                  onClick={() => {
+                    window.location.href = '/services';
+                  }}
                 >
                   View Our Services
                 </motion.button>

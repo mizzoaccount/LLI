@@ -1,13 +1,17 @@
 "use client";
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Header from '@/components/Header'; 
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import ScheduleConsultationModal from '@/components/ScheduleConsultationModal';
 
 export default function ServicesPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   const services = [
     {
       title: "Public Finance Management and Budgeting",
@@ -718,13 +722,14 @@ export default function ServicesPage() {
                 Our team of experts is ready to discuss your specific needs and develop a customized solution for your institution.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg"
-                >
-                  Schedule a Consultation
-                </motion.button>
+              <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg"
+              onClick={openModal} 
+            >
+              Schedule Consultation
+            </motion.button>
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -735,6 +740,7 @@ export default function ServicesPage() {
               </div>
             </motion.div>
           </div>
+          <ScheduleConsultationModal isOpen={isModalOpen} onClose={closeModal} />
         </section>
       </div>
       <Footer />
