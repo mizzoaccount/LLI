@@ -322,7 +322,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Map Section */}
+        {/* Map Section *
         <section className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -334,17 +334,24 @@ export default function ContactPage() {
             >
               <div className="flex flex-col lg:flex-row">
                 <div className="lg:w-1/2 h-96 bg-gray-100">
-                  {/* Replace with your actual map component or iframe */}
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100">
-                    <div className="text-center p-6">
-                      <FiMapPin className="w-12 h-12 text-red-500 mx-auto mb-4" />
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Our Headquarters</h3>
-                      <p className="text-gray-600 mb-4">Ushirika House, 3rd Floor, Nairobi, Kenya</p>
-                      <button className="px-6 py-2 bg-white text-blue-600 rounded-lg font-medium shadow-sm hover:shadow-md transition-shadow duration-300">
-                        View on Google Maps
-                      </button>
+                  <div className="text-center p-6">
+                    <FiMapPin className="w-12 h-12 text-red-500 mx-auto mb-4" />
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Our Headquarters</h3>
+                    <p className="text-gray-600 mb-4">Ushirika House, 3rd Floor, Nairobi, Kenya</p>
+                    <div className="mt-4 rounded-lg overflow-hidden shadow-lg">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.187266695905!2d36.80915826604075!3d-1.2849775433915677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10f8f65c319b%3A0xff96f4c89f3243df!2sUshirika%20House!5e0!3m2!1sen!2ske!4v1714312836965!5m2!1sen!2ske"
+                        width="100%"
+                        height="300"
+                        style={{ border: "0" }}
+                        allowFullScreen={true}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      ></iframe>
                     </div>
                   </div>
+                </div>
                 </div>
                 <div className="lg:w-1/2 p-8 md:p-10">
                   <h2 className="text-3xl font-bold text-gray-900 mb-2">Visit Our Offices</h2>
@@ -387,7 +394,76 @@ export default function ContactPage() {
               </div>
             </motion.div>
           </div>
-        </section>
+        </section>*/}
+        {/* Map Section */}
+<section className="py-12 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="bg-white rounded-2xl shadow-xl overflow-hidden"
+    >
+      <div className="flex flex-col lg:flex-row">
+        {/* Map Full Section */}
+        <div className="lg:w-1/2 h-96 lg:h-auto">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.187266695905!2d36.80915826604075!3d-1.2849775433915677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10f8f65c319b%3A0xff96f4c89f3243df!2sUshirika%20House!5e0!3m2!1sen!2ske!4v1714312836965!5m2!1sen!2ske"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-full"
+          ></iframe>
+        </div>
+
+        {/* Text Section */}
+        <div className="lg:w-1/2 p-8 md:p-10">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">Visit Our Offices</h2>
+          <p className="text-gray-600 mb-6">Schedule an in-person consultation with our legislative experts</p>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Nairobi Headquarters</h3>
+              <p className="text-gray-600 mb-2">Ushirika House, 3rd Floor</p>
+              <p className="text-gray-600">Nairobi, Kenya</p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Regional Offices</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <FiMapPin className="text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium text-gray-900">Mombasa Office</p>
+                    <p className="text-gray-600">Nyali Centre, 2nd Floor</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <FiMapPin className="text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium text-gray-900">Kisumu Office</p>
+                    <p className="text-gray-600">West End Towers, Suite 5</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div className="pt-6 border-t border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Parking Information</h3>
+              <p className="text-gray-600 mb-2">Secure parking available at Ushirika House basement</p>
+              <p className="text-sm text-gray-500">Please inform security you're visiting Legislative Consultants</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
